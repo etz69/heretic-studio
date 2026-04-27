@@ -1,0 +1,75 @@
+:root {
+  color-scheme: dark;
+  --bg0: #0b0d12;
+  --bg1: #121622;
+  --bg2: #1a2030;
+  --line: #2a3145;
+  --text: #e8ecf4;
+  --muted: #8b95ad;
+  --accent: #7ee787;
+  --accent2: #5ad4e6;
+  --warn: #f5a524;
+  --danger: #ff6b6b;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--bg0);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1200px 800px at 10% -10%, #1f2840 0%, transparent 55%),
+    radial-gradient(900px 600px at 100% 0%, #152028 0%, transparent 50%), var(--bg0);
+}
+
+code,
+.mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+a {
+  color: var(--accent2);
+}
+
+/* LLM abliteration explainer (App.tsx) */
+@keyframes ablit-r-pulse {
+  0%,
+  100% {
+    stroke-opacity: 0.55;
+    stroke-width: 2.25;
+  }
+  50% {
+    stroke-opacity: 1;
+    stroke-width: 3;
+  }
+}
+
+@keyframes ablit-proj-twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.ablit-r {
+  animation: ablit-r-pulse 2.6s ease-in-out infinite;
+  transform-box: fill-box;
+}
+
+.ablit-proj {
+  animation: ablit-proj-twinkle 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ablit-r,
+  .ablit-proj {
+    animation: none !important;
+  }
+}

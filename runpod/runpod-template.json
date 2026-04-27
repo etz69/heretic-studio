@@ -1,0 +1,17 @@
+{
+  "name": "Heretic Studio (Heretic + Ollama + sidecar)",
+  "description": "GPU pod: Heretic decensoring with auto-save, HTTP sidecar on 8888 for logs/GPU/chat. Ollama and LiteLLM are installed for shell experiments. Expose ports 8888 (sidecar), 11434 (ollama), 4000 (optional litellm).",
+  "dockerArgs": "",
+  "ports": "8888/http,11434/http,4000/http",
+  "volumeMountPath": "/workspace",
+  "env": [
+    { "key": "HF_TOKEN", "value": "" },
+    { "key": "HF_MODEL", "value": "Qwen/Qwen3-4B-Instruct-2507" },
+    { "key": "HERETIC_OUTPUT_DIR", "value": "/workspace/decensored" },
+    { "key": "HERETIC_N_TRIALS", "value": "25" },
+    { "key": "COLAB_GPU", "value": "1" },
+    { "key": "OLLAMA_HOST", "value": "0.0.0.0:11434" },
+    { "key": "SKIP_ORIGINAL_HF_SNAPSHOT", "value": "" }
+  ],
+  "readme": "Fill HF_TOKEN. Use an image built from runpod/Dockerfile in this repo. Lower HERETIC_N_TRIALS for quick tests. Set SKIP_ORIGINAL_HF_SNAPSHOT=1 to skip the extra full-repo copy used for original-weights chat (saves time and disk on large models like Gemma-31B); Heretic still downloads the model once."
+}
