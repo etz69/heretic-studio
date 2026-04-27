@@ -68,8 +68,7 @@ docker push YOUR_REGISTRY/freedom-runpod:latest
 ```
 
 ```bash
-docker build --platform linux/amd64 -t docker.io/etzos/freedom-runpod:latest -f runpod/Dockerfile .
-docker push docker.io/etzos/freedom-runpod:latest
+You can use the default docker image from docker.io/etzos/freedom-runpod:latest
 ```
 
 
